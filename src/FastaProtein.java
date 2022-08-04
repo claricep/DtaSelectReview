@@ -1,5 +1,3 @@
-package dta;
-
 public class FastaProtein {
 
     private String extension;

@@ -30,9 +30,9 @@ public class PeptideIds {
 
             // loop through the result set  
             while (rs.next()) {
-                System.out.println(rs.getInt("Unique") +  "\t" +
-                        rs.getString("FileName") + "\t" +
-                        rs.getDouble("XCorr"));
+//                System.out.println(rs.getInt("Unique") +  "\t" +
+//                        rs.getString("FileName") + "\t" +
+//                        rs.getDouble("XCorr"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

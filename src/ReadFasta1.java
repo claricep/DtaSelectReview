@@ -1,27 +1,19 @@
 import java.io.FileReader;
 import java.util.*;
 import java.io.BufferedReader;
+import java.util.Collections;
+import java.util.Random;
 
 public class ReadFasta1 {
 
-    public static void main(String[] args) throws Exception {
-        getFastaProteinList( "/Users/claricepark/data/blindptm/small.fasta");
-    }
-
-    public static List<dta.FastaProtein> getFastaProteinList(String fastaFile) throws Exception {
-
-        //String inputFile = "/Users/claricepark/data/blindptm/small.fasta";
+    public static List<FastaProtein> getFastaProteinList(String fastaFile) throws Exception {
 
         //List<FastaProtein> proteinList = new ArrayList();
-        List<dta.FastaProtein> proteins = new ArrayList();
+        List<FastaProtein> proteins = new ArrayList();
         BufferedReader br = new BufferedReader(new FileReader(fastaFile));
         StringBuffer sb = new StringBuffer();
 
         String eachLine = null;
-        //1. create FastaProtein object
-        //2. set values correctly
-        //3. add them to proteinList
-
         eachLine = br.readLine();
         while (true) {
 
@@ -31,9 +23,15 @@ public class ReadFasta1 {
                     continue;
                 sb.append(eachLine);
             }
-            dta.FastaProtein protein = new dta.FastaProtein();
+            FastaProtein protein = new FastaProtein();
             protein.setDescription(defLine);
             protein.setSequence(sb.toString());
+            Collections.shuffle(proteins);
+
+            //seed number
+            Random randomobj = new Random();
+            long seed = 500;
+            randomobj.setSeed(seed);
 
             proteins.add(protein);
             sb.delete(0, sb.length());
@@ -41,13 +39,8 @@ public class ReadFasta1 {
             if(eachLine == null)
                 break;
         }
-
-        //System.out.println(proteinList);
         br.close();
         return proteins;
     }
-
-
-
 }
 
