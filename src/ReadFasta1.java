@@ -24,9 +24,9 @@ public class ReadFasta1 {
                 sb.append(eachLine);
             }
             FastaProtein protein = new FastaProtein();
-            protein.setDescription(defLine);
-            protein.setSequence(sb.toString());
-            Collections.shuffle(proteins);
+//            protein.setDescription(defLine);
+//            protein.setSequence(sb.toString());
+//            Collections.shuffle(proteins);
 
             //seed number
             Random randomobj = new Random();
