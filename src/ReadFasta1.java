@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class ReadFasta1 {
 
+
     public static List<FastaProtein> getFastaProteinList(String fastaFile) throws Exception {
 
-        //List<FastaProtein> proteinList = new ArrayList();
         List<FastaProtein> proteins = new ArrayList();
         BufferedReader br = new BufferedReader(new FileReader(fastaFile));
         StringBuffer sb = new StringBuffer();
@@ -24,14 +24,8 @@ public class ReadFasta1 {
                 sb.append(eachLine);
             }
             FastaProtein protein = new FastaProtein();
-//            protein.setDescription(defLine);
-//            protein.setSequence(sb.toString());
-//            Collections.shuffle(proteins);
-
-            //seed number
-            Random randomobj = new Random();
-            long seed = 500;
-            randomobj.setSeed(seed);
+            protein.setDescription(defLine);
+            protein.setSequence(sb.toString());
 
             proteins.add(protein);
             sb.delete(0, sb.length());
@@ -39,8 +33,8 @@ public class ReadFasta1 {
             if(eachLine == null)
                 break;
         }
+
         br.close();
         return proteins;
     }
 }
-
