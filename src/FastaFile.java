@@ -1,15 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-//Users/claricepark/data/blindptm/search.xml
-//Users/claricepark/data/blindptm/DTASelect-filter.txt
-///Users/claricepark/data/blindptm/UniProt_human_reviewed_contaminant_05-23-2020_reversed.fasta
+///users/claricepark/data/blindptm/UniProt_human_contaminant_05-05-2020.fasta
 
 public class FastaFile {
 
     public static void main(String[] args) throws Exception { //cannot be main method
-        String file = "/users/claricepark/data/blindptm/UniProt_human_contaminant_05-05-2020.fasta";
+
+        //input
+        Scanner inScanner = new Scanner(System.in);
+        System.out.print("Enter file path:"); ///Users/claricepark/data/blindptm/search.xml
+        String file = inScanner.next();
+
         String outputPath = file.substring(0, file.lastIndexOf('/')) + File.separator + "shuffled.sequences";
+        System.out.println("New file created: " + outputPath);
         File outputFile = new File(outputPath);
         if(outputFile.exists())
             outputFile.delete();
@@ -37,10 +41,11 @@ public class FastaFile {
                 writer.write("\n");
                 writer.write(afterShuffle);
                 writer.write("\n");
+                writer.close();
 
-            }writer.close();
+            }
         } catch (IOException e) {
-
+            System.out.println("error");
         }System.out.println("shuffled");
     }
 }
