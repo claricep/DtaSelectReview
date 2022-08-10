@@ -1,15 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-///users/claricepark/data/blindptm/UniProt_human_contaminant_05-05-2020.fasta
-
 public class FastaFile {
 
     public static void main(String[] args) throws Exception { //cannot be main method
 
-        //input
         Scanner inScanner = new Scanner(System.in);
-        System.out.print("Enter file path:"); ///Users/claricepark/data/blindptm/search.xml
+        System.out.print("Enter file path:");
         String file = inScanner.next();
 
         String outputPath = file.substring(0, file.lastIndexOf('/')) + File.separator + "shuffled.sequences";
