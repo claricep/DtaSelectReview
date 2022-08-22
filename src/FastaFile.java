@@ -1,21 +1,28 @@
 import java.io.*;
 import java.util.*;
 
+//Users/claricepark/data/blindptm/search.xml
+//Users/claricepark/data/blindptm/DTASelect-filter.txt
+///Users/claricepark/data/blindptm/UniProt_human_reviewed_contaminant_05-23-2020_reversed.fasta
+
 public class FastaFile {
 
     public static void main(String[] args) throws Exception { //cannot be main method
+        //user input
 
-        Scanner inScanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter file path:");
-        String file = inScanner.next();
+        String fastaPathInput = sc.next();
+        String inputFastaFile = fastaPathInput;
+        System.out.println("You entered: " + inputFastaFile);
 
-        String outputPath = file.substring(0, file.lastIndexOf('/')) + File.separator + "shuffled.sequences";
-        System.out.println("New file created: " + outputPath);
+        //String file = "/Users/claricepark/data/shaboo/UniProt_HumEnz_SARS2_Schief_RBD_v202_v_1_contaminant_08-07-2022_reversed_cleaned.fasta";
+        String outputPath = inputFastaFile.substring(0, inputFastaFile.lastIndexOf('/')) + File.separator + "shuffled.sequences";
         File outputFile = new File(outputPath);
         if(outputFile.exists())
             outputFile.delete();
 
-        List<FastaProtein> fastaProteinList = ReadFasta1.getFastaProteinList(file);
+        List<FastaProtein> fastaProteinList = ReadFasta1.getFastaProteinList(inputFastaFile);
 
         try(FileWriter fw = new FileWriter(outputPath, true);
             BufferedWriter writer = new BufferedWriter(fw);
@@ -38,11 +45,10 @@ public class FastaFile {
                 writer.write("\n");
                 writer.write(afterShuffle);
                 writer.write("\n");
-                writer.close();
 
-            }
+            }writer.close();
         } catch (IOException e) {
-            System.out.println("error");
-        }System.out.println("shuffled");
+
+        }System.out.println('\n' + "New file created: " + outputPath);
     }
 }
