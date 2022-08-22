@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DtaSelectReview.iml" filepath="$PROJECT_DIR$/DtaSelectReview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShuffleFasta.iml" filepath="$PROJECT_DIR$/ShuffleFasta.iml" />
     </modules>
   </component>
 </project>

@@ -8,7 +8,6 @@ import java.util.*;
 public class FastaFile {
 
     public static void main(String[] args) throws Exception { //cannot be main method
-        //user input
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter file path:");
